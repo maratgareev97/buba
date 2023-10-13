@@ -11,17 +11,18 @@
 {% endif%}
 
 <form action="/jinja">
-  <input type="text" name="a" value="0">
-  <input type="submit">
+    <input type="text" name="a" value="0">
+    <input type="hidden" name="b" value="yellow">
+    <input type="submit">
 </form>
 {% if s==1 %}
-    <b>{{s}}</b>
+<b>{{s}}</b>
 {% else %}
-{%  for i in range(s) %}
-    <font color="red">
-        Не правильно
-    </font>
-{%  endfor  %}
+{% for i in range(s) %}
+<font color="red">
+    Не правильно
+</font>
+{% endfor %}
 {% endif %}
 </body>
 </html>
