@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% if s==2%}
+<body bgcolor="black">
+{% else%}
+<body bgcolor="yellow">
+{% endif%}
+
+<form action="/jinja">
+  <input type="text" name="a" value="0">
+  <input type="submit">
+</form>
+{% if s==1 %}
+    <b>{{s}}</b>
+{% else %}
+{%  for i in range(s) %}
+    <font color="red">
+        Не правильно
+    </font>
+{%  endfor  %}
+{% endif %}
+</body>
+</html>
