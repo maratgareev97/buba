@@ -46,9 +46,13 @@ def editStringBookPost():
 
 @app.route('/jinja', methods=['GET'])
 def jinj():
-    name = int(request.args.get("a"))
-    print(name)
-    return render_template("jinj.html",s=name)
+    print(request.args.get("a"))
+    if request.args.get("a")!=None:
+        name = int(request.args.get("a"))
+        print(name)
+        return render_template("jinj.html",s=name)
+    else:
+        return render_template("jinj.html",s=0)
 
 
 if __name__ == '__main__':
