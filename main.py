@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from werkzeug.utils import secure_filename
+
 app = Flask(__name__)
 
 
@@ -18,7 +19,7 @@ def mica(a, b):
 def req():
     name = request.args.get("first")
     eman = request.args.get("second")
-    print(name,eman)
+    print(name, eman)
     if name != None and eman != None:
         name = int(name)
         eman = int(eman)
@@ -44,16 +45,18 @@ def editStringBookPost():
         # sqlRequests.updateDataById(id, name, phone, description)
     return redirect("/ppp")
 
+
 @app.route('/jinja', methods=['GET'])
 def jinj():
     print(request.args.get("a"))
     print(request.args.get("b"))
-    if request.args.get("a")!=None:
+    if request.args.get("a") != None:
         name = int(request.args.get("a"))
         print(name)
-        return render_template("jinj.html",s=name)
+        return render_template("jinj.html", s=name)
     else:
-        return render_template("jinj.html",s=0)
+        return render_template("jinj.html", s=0)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
