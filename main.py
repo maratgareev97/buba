@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-
+from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 
@@ -37,7 +37,7 @@ def editStringBook():
 @app.route('/ppp/post', methods=['POST'])
 def editStringBookPost():
     if request.method == "POST":
-        pass
+        print(request.form['file'])
         id = int(request.form['id'])
         name = request.form['name']
         print(id, name)
@@ -54,7 +54,6 @@ def jinj():
         return render_template("jinj.html",s=name)
     else:
         return render_template("jinj.html",s=0)
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
