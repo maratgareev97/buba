@@ -5,7 +5,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def test():
-
     return render_template("post_another_postrequest.html")
 
 
