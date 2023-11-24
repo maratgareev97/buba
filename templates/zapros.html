@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+
+    <tr bgcolor="green">
+        <b>
+            <td>id</td>
+            <td>Имя</td>
+            <td>Фамилия</td>
+        </b>
+    </tr>
+    {% set k=0 %}
+    {% for str in res %}
+    {% if k%2==0 %}
+    <tr bgcolor="red">
+        <td>{{str.id}}</td>
+        <td>{{str.name}}</td>
+        <td>{{str.second_name}}</td>
+    </tr>
+    {% else %}
+    <tr bgcolor="yellow">
+        <td>{{str.id}}</td>
+        <td>{{str.name}}</td>
+        <td>{{str.second_name}}</td>
+    </tr>
+    {% endif %}
+    {% set k=k+1 %}
+    {{k}}
+    {%endfor%}
+</table>
+</body>
+</html>
