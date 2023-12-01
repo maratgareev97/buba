@@ -1,6 +1,1 @@
-a=int(input())
-
-s=a+a
-
-print(s)
-
+print("""Марат %s""",(dsd))
