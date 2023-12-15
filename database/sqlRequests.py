@@ -1,6 +1,8 @@
-from connect import *
+from database import connect
+
+
 def getAllDates():
-    con = connection()
+    con = connect.connection()
     cur = con.cursor()  # создание курсора
     cur.execute("SELECT * FROM buba;")  # это сам запрос
     result = cur.fetchall()  # перевод ответа запроса в виде строки
@@ -8,4 +10,14 @@ def getAllDates():
     cur.close()  # закрытие курсова
     con.close()  # закрытие соединения
 
-    print(result)
+    return result
+
+def addDataRequest(id,name,second_name):
+    con = connect.connection()
+    cur = con.cursor()  # создание курсора
+    cur.execute("""insert into buba(id,name,second_name) values (%s,%s, %s);""",
+                (id, name, second_name))  # это сам запрос
+    con.commit()
+
+    cur.close()
+    con.close()
