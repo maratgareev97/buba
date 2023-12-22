@@ -21,3 +21,12 @@ def addDataRequest(id,name,second_name):
 
     cur.close()
     con.close()
+
+def delDataRequest(id):
+    con = connect.connection()
+    cur = con.cursor()  # создание курсора
+    cur.execute("""DELETE FROM buba WHERE id=%s;""",(id))  # это сам запрос
+    con.commit()
+
+    cur.close()
+    con.close()

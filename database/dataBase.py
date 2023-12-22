@@ -19,6 +19,13 @@ def addData():
     sqlRequests.addDataRequest(id, name, second_name)
     return redirect("/")
 
+@app.route('/del', methods=['GET', 'POST'])
+def delData():
+    if request.method == "POST":
+        id=request.form["id"]
+        sqlRequests.delDataRequest(id)
+    return redirect("/")
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

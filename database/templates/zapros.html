@@ -10,20 +10,26 @@
 
     <tr bgcolor="green">
         <b>
+            <td>Выбор для удаления</td>
             <td>id</td>
             <td>Имя</td>
             <td>Фамилия</td>
         </b>
     </tr>
+    <form action="/del" method="post">
     {% for str in res %}
         <tr bgcolor="pink">
+            <td><input type="radio" name="id" value={{str.id}}></td>
             <td>{{str.id}}</td>
             <td>{{str.name}}</td>
             <td>{{str.second_name}}</td>
         </tr>
     {%endfor%}
+        <input type="submit" value="удалить">
+     </form>
     <form action="/add" method="POST">
     <tr>
+        <td></td>
         <td><input type="text" value="" name="id"></td>
         <td><input type="text" description="имя" name="name"></td>
         <td><input type="text" value="" name="second_name"></td>
@@ -31,6 +37,7 @@
 </table>
 <input type="submit">
 </form>
+
 
 </body>
 </html>
