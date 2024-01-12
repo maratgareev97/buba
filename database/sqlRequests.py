@@ -17,7 +17,7 @@ def addDataRequest(id,name,second_name):
     cur = con.cursor()  # создание курсора
     cur.execute("""insert into buba(id,name,second_name) values (%s,%s, %s);""",
                 (id, name, second_name))  # это сам запрос
-    con.commit()
+    con.commit() # подтверждение записи данных
 
     cur.close()
     con.close()
@@ -26,6 +26,15 @@ def delDataRequest(id):
     con = connect.connection()
     cur = con.cursor()  # создание курсора
     cur.execute("""DELETE FROM buba WHERE id=%s;""",(id))  # это сам запрос
+    con.commit()
+
+    cur.close()
+    con.close()
+
+def updateDataRequest(id,name, second_name):
+    con = connect.connection()
+    cur = con.cursor()  # создание курсора
+    cur.execute("""UPDATE buba SET name=%s, second_name=%s WHERE id=%s;""",(name, second_name, id))  # это сам запрос
     con.commit()
 
     cur.close()

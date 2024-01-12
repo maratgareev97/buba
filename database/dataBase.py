@@ -26,6 +26,22 @@ def delData():
         sqlRequests.delDataRequest(id)
     return redirect("/")
 
+@app.route('/update/<id>', methods=['GET'])
+def updateData(id):
+    return render_template("update.html", id=id)
+
+@app.route('/update', methods=['POST'])
+def updateDataPost():
+    if request.method == "POST":
+        id=request.form['id']
+        name = request.form['name']
+        second_name = request.form["second_name"]
+        print("!!!!!!!")
+        print(id,name,second_name)
+        sqlRequests.updateDataRequest(id,name,second_name)
+    return redirect("/")
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

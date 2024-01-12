@@ -14,6 +14,7 @@
             <td>id</td>
             <td>Имя</td>
             <td>Фамилия</td>
+            <td>Изменить</td>
         </b>
     </tr>
     <form action="/del" method="post">
@@ -23,6 +24,7 @@
             <td>{{str.id}}</td>
             <td>{{str.name}}</td>
             <td>{{str.second_name}}</td>
+            <td><a href="http://192.168.0.3:5000/update/{{str.id}}">Ссылка</a></td>
         </tr>
     {%endfor%}
         <input type="submit" value="удалить">
