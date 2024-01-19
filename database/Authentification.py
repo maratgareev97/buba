@@ -1,4 +1,4 @@
-from flask import Flask, session
+from flask import Flask, session,redirect, render_template,request
 
 app = Flask(__name__)
 app.secret_key="1234567890"
@@ -8,7 +8,7 @@ password="1234"
 def index():
     if "user" in session and session['user']==password:
         return "Привет"
-    return "Доступ к этой странице запрещен"
+    return redirect('/login')
 
 @app.route('/new')
 def new():
@@ -16,13 +16,14 @@ def new():
         return "Привет new"
     return "Доступ к этой странице запрещен"
 
-@app.route('/login')
+@app.route('/login', methods=["GET",'POST'] )
 def sesssions():
-    passIn=password
-    if passIn==password:
-        session['user'] = passIn
-        return "Пораль верный. Вы можете входить"
-    return "Доступ запрещен"
+    if request.method=="POST":
+        passIn=request.form['password']
+        if passIn==password:
+            session['user'] = passIn
+            return redirect('/')
+    return render_template("passwd.html")
 
 @app.route('/logout')
 def logout():
