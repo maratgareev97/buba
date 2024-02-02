@@ -1,3 +1,5 @@
+# https://82.146.35.88:1501/vhyqSfRzzO6eAely/phpmyadmin/index.php?route=/database/structure&server=1&db=school
+
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
