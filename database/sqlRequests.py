@@ -39,3 +39,11 @@ def updateDataRequest(id,name, second_name):
 
     cur.close()
     con.close()
+
+# CREATE TABLE Staff (
+#     id INT PRIMARY KEY AUTO_INCREMENT,
+#     name VARCHAR(255) NOT NULL,
+#     position VARCHAR(30),
+#     birthday DATE NOT NULL,
+#     has_children BOOLEAN DEFAULT(FALSE) NOT NULL
+# );
