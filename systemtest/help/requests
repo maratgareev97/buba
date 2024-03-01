@@ -1,0 +1,19 @@
+CREATE TABLE Persons (
+    ID int NOT NULL AUTO_INCREMENT,
+    textquestion varchar(10000) NOT NULL,
+    selectone varchar(10000) DEFAULT NULL,
+    selecttwo varchar(10000) DEFAULT NULL,
+    selectthree varchar(10000) DEFAULT NULL,
+    selectfour varchar(10000) DEFAULT NULL,
+    answer int DEFAULT NULL,
+    PRIMARY KEY (ID)
+);
+
+INSERT INTO correct (textquestion, selectone, selecttwo, selectthree, selectfour, answer)
+VALUES ('Как тебя зовут?','Вася','Фёдор','Петя','Буба',4);
+
+SELECT * FROM `correct` WHERE id=4;
+
+UPDATE `correct` SET `textquestion`='привет', selectone ='buba' WHERE ID = 2;
+
+DELETE FROM `correct` WHERE id=2;
