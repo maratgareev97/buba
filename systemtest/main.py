@@ -45,6 +45,31 @@ def addQuestion():
 
     return redirect("/")
 
+@app.route('/all')
+def getAllDates():
+    try:
+        connection = pymysql.connect(host='82.146.35.88',
+                                     user='school',
+                                     password='Q1w2e3r4',
+                                     db='school',
+                                     charset='cp1251',
+                                     cursorclass=pymysql.cursors.DictCursor)
+
+        cur = connection.cursor()  # создание курсора
+        cur.execute("SELECT * FROM correct;")  # это сам запрос
+        result = cur.fetchall()  # перевод ответа запроса в виде строки
+
+        cur.close()  # закрытие курсова
+        connection.close()  # закрытие соединения
+        for i in result:
+            print(type(i))
+        return render_template("all.html", result=result)
+
+    except:
+        print("Ошибка соединения")
+
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
