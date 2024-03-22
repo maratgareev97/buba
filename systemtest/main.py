@@ -31,7 +31,7 @@ def addQuestion():
 
         cur = connection.cursor()  # создание курсора
         cur.execute("""INSERT INTO correct (
-        textquestion, selectone, selecttwo, selectthree, selectfour, answer) 
+        textquestion, selectone, selecttwo, selectthree, selectfour, answer)
         VALUES (%s,%s,%s,%s,%s,%s);""",
                     (textQuestion,selectOne,selectTwo,selectThree,selectFoo,answer))  # это сам запрос
         connection.commit()  # подтверждение записи данных

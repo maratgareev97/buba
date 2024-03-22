@@ -12,6 +12,8 @@ CREATE TABLE Persons (
 INSERT INTO correct (textquestion, selectone, selecttwo, selectthree, selectfour, answer)
 VALUES ('Как тебя зовут?','Вася','Фёдор','Петя','Буба',4);
 
+SELECT * FROM `correct`;
+
 SELECT * FROM `correct` WHERE id=4;
 
 UPDATE `correct` SET `textquestion`='привет', selectone ='buba' WHERE ID = 2;
