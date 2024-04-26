@@ -1,3 +1,5 @@
+https://82.146.35.88:1501/vhyqSfRzzO6eAely/phpmyadmin/index.php?route=/sql&server=1&db=school&table=correct&pos=0
+
 CREATE TABLE Persons (
     ID int NOT NULL AUTO_INCREMENT,
     textquestion varchar(10000) NOT NULL,
@@ -19,3 +21,4 @@ SELECT * FROM `correct` WHERE id=4;
 UPDATE `correct` SET `textquestion`='привет', selectone ='buba' WHERE ID = 2;
 
 DELETE FROM `correct` WHERE id=2;
+

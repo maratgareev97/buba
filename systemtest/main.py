@@ -43,7 +43,7 @@ def addQuestion():
     except:
         print("Ошибка соединения")
 
-    return redirect("/")
+    return redirect("/all")
 
 @app.route('/all')
 def getAllDates():
@@ -61,14 +61,29 @@ def getAllDates():
 
         cur.close()  # закрытие курсова
         connection.close()  # закрытие соединения
-        for i in result:
-            print(type(i))
+        # for i in result:
+        #     print(i)
+        #     print(type(i))
         return render_template("all.html", result=result)
 
     except:
         print("Ошибка соединения")
 
-
+@app.route("/delete", methods=['POST'])
+def deleteString():
+    id = request.form['drone']
+    connection = pymysql.connect(host='82.146.35.88',
+                                 user='school',
+                                 password='Q1w2e3r4',
+                                 db='school',
+                                 charset='cp1251',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    cur = connection.cursor()  # создание курсора
+    cur.execute("""DELETE FROM `correct` WHERE id=%s;""",(id))  # это сам запрос
+    connection.commit()  # перевод ответа запроса в виде строки
+    cur.close()
+    connection.close()
+    return redirect("/all")
 
 
 if __name__ == '__main__':

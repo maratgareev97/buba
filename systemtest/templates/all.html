@@ -5,8 +5,42 @@
     <title>Title</title>
 </head>
 <body>
+{{ result }}
+<hr>
 {% for i in result %}
-    {{i.ID}} {{i.textquestion}} {{i.selectone}}<br>
+    {{i}}<br>
 {% endfor %}
+<hr>
+{% for i in result %}
+    {{i.ID}} | {{i.textquestion}} | {{i.selectone}} | {{i.selecttwo}} | {{i.selectthree}} | {{i.selectfour}} | {{i.answer}} <br>
+{% endfor %}
+<hr>
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td>Вопрос</td>
+        <td>ответ 1</td>
+        <td>ответ 2</td>
+        <td>ответ 3</td>
+        <td>ответ 4</td>
+        <td>номер правильного ответа</td>
+        <td>Удалить</td>
+    </tr>
+    <form action="delete" method="post">
+    {% for i in result %}
+     <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i.textquestion}}</td>
+        <td>{{i.selectone}}</td>
+        <td>{{i.selecttwo}}</td>
+        <td>{{i.selectthree}}</td>
+        <td>{{i.selectfour}}</td>
+        <td>{{i.answer}}</td>
+         <td><input type="radio" id="huey" name="drone" value="{{i.ID}}" /> </td>
+    </tr>
+    {% endfor%}
+        <input type="submit">
+    </form>
+</table>
 </body>
 </html>
