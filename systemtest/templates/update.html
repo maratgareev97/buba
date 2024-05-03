@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="cp1251_general_ci">
+    <title>Изменить вопрос</title>
+</head>
+<body>
+<h1 align="center">Изменить вопрос</h1>
+{{result[0].ID}}
+<form action="update" method="post">
+  <div><input type="text" name="id" value="{{result[0].ID}}"></div>
+  <div><textarea name="text_question">{{result[0].textquestion}}</textarea></div>
+  <div>Добавьте варианты ответов</div>
+  <div>1: <input type="text" name="select_one" value="{{result[0].selectone}}"></div>
+  <div>2: <input type="text" name="select_two" value="{{result[0].selecttwo}}"></div>
+  <div>3: <input type="text" name="select_three" value="{{result[0].selectthree}}"></div>
+  <div>4: <input type="text" name="select_foo" value="{{result[0].selectfour}}"></div>
+  <div>Введите номер ответа</div>
+  <div>1: <input type="text" name="answer" value="{{result[0].answer}}"></div>
+  <div>1: <input type="submit"></div>
+</form>
+
+</body>
+</html>
